@@ -46,14 +46,16 @@ function showError(msg) {
   $("error").classList.remove("hide");
 }
 
-function guestBlock(name, habits, comment) {
-  const g = el("div", "guest");
-  g.append(el("b", "", name));
+function habitsLine(habits, comment) {
   const none = !habits || norm(habits) === "none";
   const isAllergy = /allerg/i.test(habits + " " + comment);
-  g.append(el("span", isAllergy ? "alert" : "", none ? "No dietary restrictions" : habits));
-  if (comment) g.append(el("span", "note", comment));
-  return g;
+  const d = el("div", "line");
+  d.append(el("span", isAllergy ? "alert" : "", none ? "No dietary restrictions" : habits));
+  return d;
+}
+
+function commentLine(comment) {
+  return el("div", "line" + (comment ? "" : " sub"), comment || "–");
 }
 
 function buildRows(t) {
@@ -80,13 +82,21 @@ function render(t) {
     th.scope = "row";
     th.append(document.createElement("br"), el("span", "tag" + (e.host ? " host" : ""), e.host ? "You host" : "You visit"));
     const addr = el("td", "", e.address);
-    const det = el("td");
+    const contact = el("td");
+    const habits = el("td");
+    const comments = el("td");
     if (e.host) {
-      e.guests.forEach(g => det.append(guestBlock(...g)));
+      contact.append(el("span", "sub", "–"));
+      e.guests.forEach(g => {
+        habits.append(habitsLine(g[1], g[2]));
+        comments.append(commentLine(g[2]));
+      });
     } else {
-      det.append(el("b", "", e.who), document.createElement("br"), el("span", "sub", e.contact));
+      contact.append(el("span", "sub", e.contact));
+      habits.append(el("span", "sub", "–"));
+      comments.append(el("span", "sub", "–"));
     }
-    tr.append(th, addr, det);
+    tr.append(th, addr, contact, habits, comments);
     body.append(tr);
   });
   $("result").classList.remove("hide");
