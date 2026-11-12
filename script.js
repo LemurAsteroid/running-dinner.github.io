@@ -118,3 +118,5 @@ fetch(CSV_FILE)
   .then(r => { if (!r.ok) throw new Error(r.status); return r.text(); })
   .then(text => { teams = parseCSV(text); $("submit").disabled = false; })
   .catch(() => showError(`Could not load ${CSV_FILE}. Serve this folder with a local web server (for example "python3 -m http.server") instead of opening index.html directly.`));
+
+  

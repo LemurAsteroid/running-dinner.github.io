@@ -55,3 +55,4 @@ tbody th{font-size:1.1rem;white-space:nowrap}
 .tag{border-color:var(--tbl-head);color:var(--tbl-head)}
 .tag.host{background:var(--tbl-head);color:var(--tbl-head-ink)}
 @media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .tag:not(.host){color:#c9bdf2;border-color:#c9bdf2}}
+
