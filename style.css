@@ -46,10 +46,16 @@ tbody th{font-size:1.1rem;white-space:nowrap}
 .hide{display:none}
 @media (max-width:640px){form{grid-template-columns:1fr}}
 
-/* Table colours */
-:root{--tbl-head:#4b3b7a;--tbl-head-ink:#ffffff;--tbl-row:#ffffff;--tbl-alt:#f3effb;--tbl-line:#d9d0ee}
-:root[data-theme="dark"]{--tbl-head:#6c58b0;--tbl-head-ink:#ffffff;--tbl-row:#1d1a2e;--tbl-alt:#251f3d;--tbl-line:#3a3260}
-.tag{border-color:var(--tbl-head);color:var(--tbl-head)}
-.tag.host{background:var(--tbl-head);color:var(--tbl-head-ink)}
-@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .tag:not(.host){color:#c9bdf2;border-color:#c9bdf2}}
-
+/* Table colours: one dark palette, independent of light/dark mode.
+   Change the values below to restyle the table. */
+:root{
+  --tbl-head:#35296b; --tbl-head-ink:#ffffff;
+  --tbl-row:#1e1a39;  --tbl-alt:#251b4f;
+  --tbl-line:#3a3260; --tbl-ink:#ece8fa; --tbl-muted:#a79fcb;
+  --tbl-accent:#c9bdf2;
+}
+.wrap{color:var(--tbl-ink)}
+.wrap .sub{color:var(--tbl-muted)}
+.wrap .alert{background:#4a1f1b;color:#ffb4aa}
+.wrap .tag{border-color:var(--tbl-accent);color:var(--tbl-accent);background:transparent}
+.wrap .tag.host{background:var(--tbl-accent);color:var(--tbl-row)}
