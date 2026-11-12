@@ -48,9 +48,6 @@ tbody th{font-size:1.1rem;white-space:nowrap}
 
 /* Table colours */
 :root{--tbl-head:#4b3b7a;--tbl-head-ink:#ffffff;--tbl-row:#ffffff;--tbl-alt:#f3effb;--tbl-line:#d9d0ee}
-@media (prefers-color-scheme: dark){
-  :root:not([data-theme="light"]){--tbl-head:#6c58b0;--tbl-head-ink:#ffffff;--tbl-row:#1d1a2e;--tbl-alt:#251f3d;--tbl-line:#3a3260}
-}
 :root[data-theme="dark"]{--tbl-head:#6c58b0;--tbl-head-ink:#ffffff;--tbl-row:#1d1a2e;--tbl-alt:#251f3d;--tbl-line:#3a3260}
 .tag{border-color:var(--tbl-head);color:var(--tbl-head)}
 .tag.host{background:var(--tbl-head);color:var(--tbl-head-ink)}
