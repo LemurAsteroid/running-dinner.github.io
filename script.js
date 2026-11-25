@@ -1,4 +1,4 @@
-const CSV_FILE = "dinner-plan.csv";
+const CSV_FILE = "dinner_plan.csv";
 const ORDER = ["Starter", "Main course", "Dessert"];
 let teams = [];
 
