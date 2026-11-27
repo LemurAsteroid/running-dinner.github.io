@@ -24,7 +24,7 @@
     <h2 id="teamName"></h2>
     <div class="wrap">
       <table>
-        <thead><tr><th>Course</th><th>Address</th><th>Contact</th><th>Eating habits of guests</th><th>Comments of guests</th></tr></thead>
+        <thead><tr><th>Course</th><th>Address</th><th>Contact</th><th>Eating habits of guests</th><th>Challenge</th></tr></thead>
         <tbody id="rows"></tbody>
       </table>
     </div>

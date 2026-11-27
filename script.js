@@ -61,7 +61,7 @@ function commentLine(comment) {
 function buildRows(t) {
   return [
     {
-      course: t["hosting course"], host: true, address: t["my address"],
+      course: t["hosting course"], host: true, address: t["my address"], challenge: t["challenge"],
       guests: [
         [t["guest 1"], t["guest 1 eating habits"], t["guest 1 comments"]],
         [t["guest 2"], t["guest 2 eating habits"], t["guest 2 comments"]]
@@ -87,9 +87,9 @@ function render(t) {
     const comments = el("td");
     if (e.host) {
       contact.append(el("span", "sub", "–"));
+      comments.append(el("span", "sub", e.challenge));
       e.guests.forEach(g => {
         habits.append(habitsLine(g[1], g[2]));
-        comments.append(commentLine(g[2]));
       });
     } else {
       contact.append(el("span", "sub", e.contact));
